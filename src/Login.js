@@ -1,18 +1,18 @@
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
+import { Redirect } from "react-router";
+import { authContext } from "./Authprovider";
 import { auth, singInWithGoogle } from "./firebase";
 
 
 
 let Login = () => {
-  useEffect(() => {
-    auth.onAuthStateChanged((user) => {
-      console.log(user);
-    });
+  
 
-  }, []);
-
+    let user = useContext(authContext);
   return (
     <>
+    {user ? <Redirect to="/" /> : ""  }
+
       <button
         className="btn btn-primary"
         onClick={() => {
@@ -20,17 +20,10 @@ let Login = () => {
         }}
       >
         {" "}
-        Login with Google{" "}
+        Login With Google{" "}
       </button>
 
-      <button
-        className="btn btn-primary"
-        onClick={() => {
-          auth.signOut();
-        }}
-      >
-        LogOut
-      </button>
+      
     </>
   );
 };

@@ -1,24 +1,26 @@
 import Login from "./Login";
 import Home from "./Home";
-import {BrowserRouter as Router , Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Authprovider from "./Authprovider";
 
-let App = ()=>{
-    return (
-        <Router>
-            <Switch>
+let App = () => {
+  return (
+    <Authprovider>
+      <Router>
+        <Switch>
 
-                <Route path="/home">
-                    <Home />
-                </Route>
+          <Route exact path="/login">
+            <Login />
+          </Route>
 
-                <Route path = "/login"> 
-                    <Login /> 
-                </Route>
-
-            </Switch>
-        </Router>
-    )
-}
+          <Route exact path="/">
+            <Home />
+          </Route>
+          
+        </Switch>
+      </Router>
+    </Authprovider>
+  );
+};
 
 export default App;
-
