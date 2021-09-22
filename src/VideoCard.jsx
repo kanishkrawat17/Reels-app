@@ -2,35 +2,78 @@ import "./videoCard.css";
 import { useState } from "react";
 
 let VideoCard = () => {
-  let [playing, setPlaying] = useState(false);
-
-  return (
-    <>
+    let [playing, setPlaying] = useState(false);
+    let [commentBoxOpen, setCommentBoxOpen] = useState(false);
+  
+    return (
       <div className="video-card">
-        <video
+        <p className="video-card-username">Fake user</p>
+        <span className="video-card-music">
+          <span className="material-icons">music_note</span>
+          <marquee>some song</marquee>
+        </span>
+  
+        <span
           onClick={(e) => {
-            if (!playing) {
-              e.currentTarget.play();
-              setPlaying(true);
+            if (commentBoxOpen) {
+              setCommentBoxOpen(false);
             } else {
-              e.currentTarget.pause();
-              setPlaying(false);
+              setCommentBoxOpen(true);
             }
           }}
-          src="https://assets.mixkit.co/videos/preview/mixkit-girl-in-neon-sign-1232-large.mp4 "
+          className="material-icons-outlined video-card-comment"
+        >
+          chat
+        </span>
+  
+        <span className="material-icons-outlined video-card-like">
+          favorite_border
+        </span>
+  
+        {commentBoxOpen ? (
+          <div className="video-card-comment-box">
+            <div className="actual-comments">
+              <div className="post-user-comment">
+                <img src="https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80" />
+                <div>
+                  <h5>user name</h5>
+                  <p>This is actual comment</p>
+                </div>
+              </div>
+              <div className="post-user-comment">
+                <img src="https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80" />
+                <div>
+                  <h5>user name</h5>
+                  <p>This is actual comment</p>
+                </div>
+              </div>
+            </div>
+            <div className="comment-form">
+              <input type="text" />
+              <button>Post</button>
+            </div>
+          </div>
+        ) : (
+          ""
+        )}
+  
+        <video
+          onClick={(e) => {
+            if (playing) {
+              e.currentTarget.pause();
+              setPlaying(false);
+            } else {
+              e.currentTarget.play();
+              setPlaying(true);
+            }
+          }}
           loop
+          src="https://assets.mixkit.co/videos/preview/mixkit-girl-in-neon-sign-1232-large.mp4 "
+          className="video-card-video"
         ></video>
-        <p>Fake User</p>
-        <span className="comment">
-          <span class="material-icons-outlined">chat_bubble_outline</span>
-        </span>
-        <span className="like">
-          <span class="material-icons-outlined">favorite_border</span>
-        </span>
-        <marquee>Some song</marquee>
       </div>
-    </>
-  );
-};
+    );
+  };
+  
+  export default VideoCard;
 
-export default VideoCard;
