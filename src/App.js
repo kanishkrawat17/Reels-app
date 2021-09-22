@@ -9,41 +9,47 @@ let App = () => {
 
   useEffect(()=>{
 
-    firestore.collection("users").add({body : "this is val 1"})
+    // firestore.collection("users").add({body : "this is val 1"})
 
 
-    async function f (){
-      let querySnapshot = await firestore.collection("users").get();
-      for(let i = 0 ; i < querySnapshot.docs.length ; i++){
-        console.log(querySnapshot.docs[i].data())
-      }
-    }
-    f();
+    // async function f (){
+    //   let querySnapshot = await firestore.collection("users").get();
+    //   for(let i = 0 ; i < querySnapshot.docs.length ; i++){
+    //     console.log(querySnapshot.docs[i].data())
+    //   }
+    // }
+    // f();
+    // let f = async ()=>{
+    // let docRef = firestore.collection("users").doc("EKesvJjjlmOTpgJJ6Fe6");
+    // let documentSnapshot = await docRef.get();
+    //                console.log(documentSnapshot.data());
+    //                console.log(documentSnapshot.id);
 
-
+    // }
+    // f();
   },[]);
 
   return (
 
 
 
-    <h1>App</h1>
+  
     
-    // <Authprovider>
-    //   <Router>
-    //     <Switch>
+    <Authprovider>
+      <Router>
+        <Switch>
 
-    //       <Route exact path="/login">
-    //         <Login />
-    //       </Route>
+          <Route exact path="/login">
+            <Login />
+          </Route>
 
-    //       <Route exact path="/">
-    //         <Home />
-    //       </Route>
+          <Route exact path="/">
+            <Home />
+          </Route>
           
-    //     </Switch>
-    //   </Router>
-    // </Authprovider>
+        </Switch>
+      </Router>
+    </Authprovider>
   );
 };
 

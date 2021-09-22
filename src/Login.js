@@ -8,13 +8,12 @@ import { auth, singInWithGoogle } from "./firebase";
 let Login = () => {
   
 
-    let user = useContext(authContext);
+  let user = useContext(authContext);
   return (
     <>
     {user ? <Redirect to="/" /> : ""  }
-
       <button
-        className="btn btn-primary"
+        className="btn btn-primary m-4" 
         onClick={() => {
           singInWithGoogle();
         }}
@@ -22,8 +21,6 @@ let Login = () => {
         {" "}
         Login With Google{" "}
       </button>
-
-      
     </>
   );
 };
