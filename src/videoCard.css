@@ -1,0 +1,42 @@
+.video-card{
+    height: 100vh;
+    width: 35%;
+    border: 1px solid white;
+    margin: auto;
+    position: relative;
+    scroll-snap-align: center;
+    
+}
+
+video{
+    height: 100%;
+    width: 100%;
+}
+p{
+    position: absolute;
+    bottom: 7rem;
+    color: white;
+    left: 5rem;
+}
+
+marquee{
+    position: relative;
+    bottom: 7rem;
+    color: white;
+    right: 34rem;
+    left: 5rem;
+}
+
+.comment{
+  
+    position: absolute;
+    bottom: 1.5rem;
+    left: 5rem;
+    color: white;
+}
+.like{
+    position: absolute;
+    color: red;
+    bottom: 1.5rem;
+    left: 7rem;
+}
