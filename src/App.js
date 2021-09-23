@@ -8,17 +8,19 @@ import { useEffect } from "react";
 let App = () => {
 
   useEffect(()=>{
-
+    // to add
     // firestore.collection("users").add({body : "this is val 1"})
 
-
+    //  to get ids 
     // async function f (){
     //   let querySnapshot = await firestore.collection("users").get();
     //   for(let i = 0 ; i < querySnapshot.docs.length ; i++){
     //     console.log(querySnapshot.docs[i].data())
+            // console.log(querysnapshot.docs[i].id);
     //   }
     // }
     // f();
+    
     // let f = async ()=>{
     // let docRef = firestore.collection("users").doc("EKesvJjjlmOTpgJJ6Fe6");
     // let documentSnapshot = await docRef.get();
@@ -31,10 +33,6 @@ let App = () => {
 
   return (
 
-
-
-  
-    
     <Authprovider>
       <Router>
         <Switch>
