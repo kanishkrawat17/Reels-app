@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Redirect } from "react-router";
 import { authContext } from "./Authprovider";
 import { auth, singInWithGoogle } from "./firebase";
@@ -10,10 +10,11 @@ import "./home.css";
 
 let Home = () => {
   let user = useContext(authContext);
+  // useEffect(()=>{console.log("logout or home")},[])
   return (
     <>
       {user ? "" : <Redirect to="/login" />}
-
+      {console.log("logout or home")}
       <div className="video-container">
         <VideoCard />
       </div>
